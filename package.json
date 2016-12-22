@@ -1,0 +1,14 @@
+{
+  "name": "campaign-monitor-javascript-requirements",
+  "version": "0.0.1",
+  "devDependencies": {
+    "jasmine": "^2.5.2",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-opera-launcher": "^1.0.0",
+    "karma-safari-launcher": "^1.0.0"
+  }
+}
