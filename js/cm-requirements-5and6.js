@@ -8,11 +8,15 @@
  * @param string input
  * @returns {*} true - if empty string.
  * false - if valid non-empty string.
+ * false - if valid numeric and non-string
+ * undefined - if null
  * undefined - for any other input
  */
-function stringInitialiser(string) {
+function stringInitializer(string) {
     if (isEmpty(string)) return true;
-    if (isValidString(string)) return false
+    if (isValidString(string)) return false;
+    if (isNumeric(string)) return false;
+    if (isNull(string)) return undefined;
     return undefined;
 }
 
@@ -38,6 +42,26 @@ function isValidString(string) {
 }
 
 /**
+ * Determines if input is a valid number
+ *
+ * @param number numeric input
+ * @returns {boolean} true if input is of numeric type
+ */
+function isNumeric(number) {
+    return !isNaN(parseFloat(number)) && isFinite(number);
+}
+
+/**
+ * Determines if input is null
+ *
+ * @param string - string input
+ * @returns {boolean} true if input is null
+ */
+function isNull(string) {
+    return string == null;
+}
+
+/**
  * This should take a single argument and return true if the provided string is a prefix of this
  *
  * @param string input of type String.
@@ -48,7 +72,7 @@ function isValidString(string) {
  */
 String.prototype.startsWith = function (string) {
     // initialise input
-    var isPrefixString = stringInitialiser(string);
+    var isPrefixString = stringInitializer(string);
 
     // validate input
     if (isPrefixString === undefined) return isPrefixString;
@@ -78,7 +102,7 @@ String.prototype.startsWith = function (string) {
  */
 String.prototype.endsWith = function (string) {
     // initialise input
-    var isSuffixString = stringInitialiser(string);
+    var isSuffixString = stringInitializer(string);
 
     // validate input
     if (isSuffixString === undefined) return isSuffixString;

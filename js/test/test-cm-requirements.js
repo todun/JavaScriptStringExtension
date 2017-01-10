@@ -225,6 +225,13 @@ describe("Requirement 5: startsWith(string)  ­ This should take a single argume
             expect(someString.endsWith(suffixOfSomeString)).toBeFalsy(true);
         });
     });
+
+    describe("string suffix", function () {
+        var suffixOfSomeString = 42;
+        it("'" + suffixOfSomeString + "'" + " should not be a suffix of " + "'" + someString + "'", function () {
+            expect(someString.endsWith(suffixOfSomeString)).toBe(false);
+        });
+    });
 });
 
 
