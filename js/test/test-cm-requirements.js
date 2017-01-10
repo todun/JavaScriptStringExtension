@@ -74,6 +74,27 @@ describe("Requirement 5: startsWith(string)  ­ This should take a single argume
         });
     });
 
+    describe("string prefix", function () {
+        var prefixOfSomeString = "hang the dj";
+        it("'" + prefixOfSomeString + "'" + " should be a prefix of " + "'" + someString + "'", function () {
+            expect(someString.startsWith(prefixOfSomeString)).toBe(true);
+        });
+    });
+
+    describe("string prefix", function () {
+        var prefixOfSomeString = "hang the dj fsfgdsf";
+        it("'" + prefixOfSomeString + "'" + " should not be a prefix of " + "'" + someString + "'", function () {
+            expect(someString.startsWith(prefixOfSomeString)).toBe(false);
+        });
+    });
+
+    describe("string prefix", function () {
+        var prefixOfSomeString = "hang the dj fsfgdsf";
+        it("'" + prefixOfSomeString + "'" + " length cannot exceed length of " + "'" + someString + "'", function () {
+            expect(someString.length > prefixOfSomeString.length).toBe(false);
+        });
+    });
+
     // prefix string error case
 
     describe("string prefix", function () {
@@ -180,6 +201,27 @@ describe("Requirement 5: startsWith(string)  ­ This should take a single argume
         var suffixOfSomeString = "{ first: “Johnny” }";
         it("'" + suffixOfSomeString + "'" + " should not be a suffix of " + "'" + someString + "'", function () {
             expect(someString.endsWith(suffixOfSomeString)).toBe(false);
+        });
+    });
+
+    describe("string suffix", function () {
+        var suffixOfSomeString = "hang the dj";
+        it("'" + suffixOfSomeString + "'" + " should be a suffix of " + "'" + someString + "'" + " because it is the empty string", function () {
+            expect(someString.endsWith(suffixOfSomeString)).toBe(true);
+        });
+    });
+
+    describe("string suffix", function () {
+        var suffixOfSomeString = "EXTRA hang the dj";
+        it("'" + suffixOfSomeString + "'" + " should not be a suffix of " + "'" + someString + "'" + " because it is longer than string", function () {
+            expect(someString.endsWith(suffixOfSomeString)).toBe(false);
+        });
+    });
+
+    describe("string suffix", function () {
+        var suffixOfSomeString = "EXTRA hang the dj";
+        it("'" + suffixOfSomeString + "'" + "  length cannot exceed length of " + "'" + someString + "'", function () {
+            expect(someString.length > suffixOfSomeString.length).toBe(false);
         });
     });
 

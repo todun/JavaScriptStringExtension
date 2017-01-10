@@ -63,6 +63,11 @@ function isNull(string) {
 
 /**
  * This should take a single argument and return true if the provided string is a prefix of this
+ * Checks that input string is an exact prefix of this string and does not accept lazily matched prefixes.
+ *
+ * Example:
+ * - "hang" is an exact prefix of "hang now" : Valid prefix
+ * - "h" is a lazily matched prefix of "hang now" : Invalid prefix
  *
  * @param string input of type String.
  * @returns {boolean} true if the provided string is a prefix of this.
@@ -81,7 +86,7 @@ String.prototype.startsWith = function (string) {
     var thisCurrentIndex = 0;
     var prefixStringLengthFromIndex = string.length - 1;
 
-    while (this[thisCurrentIndex] === string[thisCurrentIndex]) {
+    while (!isPrefixString && this[thisCurrentIndex] === string[thisCurrentIndex]) {
         if (thisCurrentIndex === prefixStringLengthFromIndex) {
             isPrefixString = true;
         }
@@ -93,6 +98,11 @@ String.prototype.startsWith = function (string) {
 
 /**
  * This should take a single argument and return true if the provided string is a suffix of this
+ * Checks that input string is an exact suffix of this string and does not accept lazily matched suffixes
+ *
+ * Example:
+ * - 'now' is an exact suffix of 'hang now' : Valid suffix
+ * - 'w' is a lazily matched suffix of 'hang now' : Invalid suffix
  *
  * @param string input of type String.
  * @returns {boolean} true if the provided string is a suffix of this.
@@ -113,7 +123,7 @@ String.prototype.endsWith = function (string) {
     var thisCurrentIndex = this.length - 1;
     var thisCurrentIteratedLength = 1;
 
-    while (this[thisCurrentIndex] === string[suffixStringIndex]) {
+    while (!isSuffixString && this[thisCurrentIndex] === string[suffixStringIndex]) {
         if (thisCurrentIteratedLength === stringLength) {
             isSuffixString = true;
         }
